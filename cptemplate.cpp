@@ -8,8 +8,10 @@
 using namespace std;
 
 /* -- graph -- */
-bool vis_1d;
-bool vis_2d[Size_N][Size_N];
+vector<bool> vis_1d;
+vector<ll> graph_1d;
+vector<vector<bool>> vis_2d;
+vector<vector<ll>> graph_2d;
 //vector<ll> graph_1d[Size_N];
 //vector<vector<ll>> graph_2d[Size_N][Size_N];
 //void graphinput()
