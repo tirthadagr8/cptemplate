@@ -3,15 +3,13 @@
 #define ld long double
 #define pi M_PI
 #define Size_N  int(1e3+10)
-#define loop(i,s,e) for(ll i=s;i<e;i++)
-#define loopr(i,s,e) for(ll i=s;i<e;i--)
 using namespace std;
 
 /* -- graph -- */
 bool vis_1d;
 bool vis_2d[Size_N][Size_N];
-vector<ll> graph_1d[Size_N];
-vector<vector<ll>> graph_2d[Size_N][Size_N];
+//vector<ll> graph_1d[Size_N];
+//vector<vector<ll>> graph_2d[Size_N][Size_N];
 //void graphinput()
 
 void dfs(ll i,ll j,vector<vector<ll>> grid)
