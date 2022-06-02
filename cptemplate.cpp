@@ -3,6 +3,8 @@
 #define ld long double
 #define pi M_PI
 #define Size_N  int(1e3+10)
+#define loop(i,s,e) for(ll i=s;i<e;i++)
+#define loopr(i,s,e) for(ll i=s;i<e;i--)
 using namespace std;
 
 /* -- graph -- */
