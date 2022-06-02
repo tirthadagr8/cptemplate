@@ -14,7 +14,15 @@ vector<vector<bool>> vis_2d;
 vector<vector<ll>> graph_2d;
 //vector<ll> graph_1d[Size_N];
 //vector<vector<ll>> graph_2d[Size_N][Size_N];
-//void graphinput()
+void graphinput_2d(vector<vector<ll>> grid,ll n)
+{
+    graph_2d.resize(n);
+    for(auto& pos:grid)
+    {
+        graph_2d[pos[0]].push_back(pos[1]);
+        graph_2d[pos[1]].push_back(pos[0]);
+    }
+}
 ll vecsum(vector<vector<ll>> vec)
 {
     ll sum=0;
