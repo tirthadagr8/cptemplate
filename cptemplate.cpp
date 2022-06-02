@@ -38,14 +38,16 @@ ll vecsum(vector<ll> vec)
     sum+=vec[i];
     return sum;
 }
-void dfs(ll i,ll j,vector<vector<ll>> grid)
+void dfs(ll i,ll j,vector<vector<ll>> grid,ll parent=-1)
 {
     /* 1 way to go each cell */
     
-    // vis[vertex]=true;
+    // IF YOU USE VERTEX/NODE IN PLACE OF COORDINATES
+    
+    // vis_1d[vertex]=true;
     // for(int child:g[vertex])
     // {
-    //     if(vis[child])
+    //     if(vis_1d[child])
     //         continue;
     //     dfs(child);
     // }
