@@ -54,31 +54,34 @@ void dfs(ll i,ll j,vector<vector<ll>> grid,ll parent=-1)
     
     /*2 way to go each cell*/
     
-    // ll m=grid.size();
-    // ll n=grid[0].size();
-    // if(vis_2d[i][j])
-    //     return;
-    // if(i>=0 && j>=0 and i<m and j<n)
-    //     {
-    //         //grid[i][j] = 0;
-    //         vis_2d[i][j]=true;
-    //         dfs(i + 1, j, grid);
-    //         dfs(i - 1, j, grid);
-    //         dfs(i, j - 1, grid);
-    //         dfs(i, j + 1, grid);
-    //     }
-    // DFS in TREE
-    // void dfs(int vertex,int parent,vector<int> grid)
-    // {
-    //     for(int child:grid)
-    //     {
-    //         if(child==parent)
-    //         continue;
-    //         dfs(child,vertex);
-    //     }
-    // }
+    ll m=grid.size();
+    ll n=grid[0].size();
+    if(vis_2d[i][j])
+        return;
+    if(i>=0 && j>=0 and i<m and j<n)
+        {
+            //grid[i][j] = 0;
+            vis_2d[i][j]=true;
+            dfs(i + 1, j, grid);
+            dfs(i - 1, j, grid);
+            dfs(i, j - 1, grid);
+            dfs(i, j + 1, grid);
+        }
 }
-
+int rangeBitwiseAnd(int left, int right) 
+{
+        bool flag = true;
+        for (int i = 31; i >= 0; i--) {
+            if (flag == false) {
+                left = left & ~(1 << i);
+            }
+            else if ((left & (1 << i)) != (right & (1 << i))) {
+                flag = false;
+            }
+        }
+        
+        return left;
+    }
 void solve()
 {
     // temp
