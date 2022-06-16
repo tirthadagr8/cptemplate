@@ -113,7 +113,7 @@ ll commDiv(ll a, ll b)
     }
 	return count;
 }
-void substring(string s)
+void substring(string s) // Father of TLE
 {
     for(int i=0;i<s.size();i++)
     {
