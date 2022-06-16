@@ -38,8 +38,37 @@ ll vecsum(vector<ll> vec)
     sum+=vec[i];
     return sum;
 }
-void dfs(ll i,ll j,vector<vector<ll>> grid,ll parent=-1)
+void bfs(ll i,ll j,ll source,vector<vector<ll>> grid)
 {
+    queue<int> q;
+    q.push(source);
+    vis_1d[source]=true;
+    while(!q.empty())
+    {
+        int cur_v=q.front();
+        q.pop();
+        for(int child:grid[cur_v])
+        {
+            if(!vis_1d[child])
+            {
+                q.push(child);
+                vis_1d[child]=true;
+            }
+        }
+    }
+}
+void dfs(ll i,ll j,ll vertex,vector<vector<ll>> grid,ll parent=0)
+{
+    // TAKE ACTION ON VERTEX AFTER ENTERING THE VERTEX
+    for(int child:grid[vertex]) // rather TREE to be precise
+    {
+        // TAKE ACTION ON CHILD BEFORE ENTERING CHILD NODE
+        if(child==parent)continue;
+        dfs(0,0,child,grid,vertex);
+        // TAKE ACTION AFTER EXITING CHILD NODE
+    }
+    // TAKE ACTION AFTER EXITING THE VERTEX
+    
     /* 1 way to go each cell */
     
     // IF YOU USE VERTEX/NODE IN PLACE OF COORDINATES
@@ -62,37 +91,62 @@ void dfs(ll i,ll j,vector<vector<ll>> grid,ll parent=-1)
         {
             //grid[i][j] = 0;
             vis_2d[i][j]=true;
-            dfs(i + 1, j, grid);
-            dfs(i - 1, j, grid);
-            dfs(i, j - 1, grid);
-            dfs(i, j + 1, grid);
+            dfs(i + 1, j,0, grid);
+            dfs(i - 1, j,0, grid);
+            dfs(i, j - 1,0, grid);
+            dfs(i, j + 1,0, grid);
         }
+}
+ll commDiv(ll a, ll b)
+{
+	// find gcd of a, b
+	ll n=__gcd(a,b);
+	// Count divisors of n.
+	ll count=0;
+    loop(i,1,sqrt(n)+1)
+    {
+        if(n%i==0)
+        {
+            if(n/i==i)count++;
+            else count+=2;
+        }
+    }
+	return count;
+}
+void substring(string s)
+{
+    for(int i=0;i<s.size();i++)
+    {
+        for(int j=i;j<=s.size()-i;j++)
+        cout<<s.substr(i,j)<<endl;
+    }
 }
 int rangeBitwiseAnd(int left, int right) 
 {
-        bool flag = true;
-        for (int i = 31; i >= 0; i--) {
-            if (flag == false) {
-                left = left & ~(1 << i);
-            }
-            else if ((left & (1 << i)) != (right & (1 << i))) {
-                flag = false;
-            }
+    bool flag = true;
+    for (int i = 31; i >= 0; i--) {
+        if (flag == false) {
+            left = left & ~(1 << i);
         }
-        
-        return left;
+        else if ((left & (1 << i)) != (right & (1 << i))) {
+            flag = false;
+        }
     }
+    return left;
+}
 void solve()
 {
-    // temp
+    
 }
 
 int main()
 {
+    //freopen("input.txt","r",stdin);
+    //freopen("output.txt","w",stdout);
     ll t;cin>>t;
     while(t--)
     {
-        
+        solve();
     }
     return 0;
 }
